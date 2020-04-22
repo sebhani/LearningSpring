@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 @Entity
 public class TodoItem {
 	private long id;
-	@NotBlank
+	@NotBlank //@NotNull accepts empty string while NotBlank doesn't
 	private String title;
 	private boolean done;
 	
