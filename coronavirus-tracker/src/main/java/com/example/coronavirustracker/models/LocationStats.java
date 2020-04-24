@@ -4,6 +4,15 @@ public class LocationStats {
     private String state;
     private String country;
     private int latestTotalCases;
+    private int deltaCases;
+
+    public int getDeltaCases() {
+        return deltaCases;
+    }
+
+    public void setDeltaCases(int deltaCases) {
+        this.deltaCases = deltaCases;
+    }
 
     public String getState() {
         return state;
@@ -35,6 +44,7 @@ public class LocationStats {
                 "state='" + state + '\'' +
                 ", country='" + country + '\'' +
                 ", latestTotalCases=" + latestTotalCases +
+                ", deltaCases=" + deltaCases +
                 '}';
     }
 }
