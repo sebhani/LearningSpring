@@ -54,9 +54,10 @@ public class HelloController {
     }
 
     @RequestMapping(value="goodbye")
-    @ResponseBody
+    //@ResponseBody //we don't need it because we will redirect
     public String goodBye(){
-        return "Goodbye";
+
+        return "redirect:/";
     }
 
 }
