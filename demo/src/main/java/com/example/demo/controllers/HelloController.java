@@ -1,3 +1,6 @@
+/**
+ * This class is to demonstrate routing in Spring Boot
+ */
 package com.example.demo.controllers;
 
 import org.springframework.stereotype.Controller;
@@ -9,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-//@RequestMapping(value = "home")   //will make the path /home/...
+@RequestMapping(value = "routes")   //will make the path /routes/...
 public class HelloController {
 
     //This method is for retrieving data within http requests
@@ -57,7 +60,7 @@ public class HelloController {
     //@ResponseBody //we don't need it because we will redirect
     public String goodBye(){
 
-        return "redirect:/";
+        return "redirect:/routes";
     }
 
 }
