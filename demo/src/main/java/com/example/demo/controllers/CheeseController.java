@@ -15,12 +15,21 @@ public class CheeseController {
     public String index(Model model){//Model is to pass data from controller handler to view
 
         ArrayList<String> cheeses = new ArrayList<String>();
-//        cheeses.add("cheddar");
-//        cheeses.add("parmesan");
-//        cheeses.add("munster");
+        cheeses.add("cheddar");
+        cheeses.add("parmesan");
+        cheeses.add("munster");
 
         //model.addAttribute("cheeses",cheeses);
         model.addAttribute("title","My Cheeses");
         return "cheese/index";
+    }
+
+    /**
+    * render the add cheese form
+     */
+    @RequestMapping(value = "add")
+    public String displayAddCheeseForm(Model model){
+        model.addAttribute("title","Add Cheese");
+        return "cheese/add";
     }
 }
