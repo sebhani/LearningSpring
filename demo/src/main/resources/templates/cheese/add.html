@@ -2,13 +2,12 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <title th:text="${title}">Cheese Website</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
+<head th:replace="fragments :: head"></head>
 
 <body>
 <h1 th:text="${title}"></h1>
+
+<nav th:replace="fragments :: navigation"></nav>
 
 <form method="post">
     <input type="text" name="cheeseName"/>
