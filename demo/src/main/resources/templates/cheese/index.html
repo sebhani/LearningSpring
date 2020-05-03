@@ -21,8 +21,8 @@
         </tr>
 
         <tr th:each="cheese : ${cheeses}">
-            <td th:text="${cheese}"></td>
-            <td></td>
+            <td th:text="${cheese.key}"></td>
+            <td th:text="${cheese.value}"></td>
         </tr>
     </table>
 
