@@ -4,11 +4,13 @@ import com.example.demo.models.Cheese;
 import com.example.demo.models.CheeseData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 
 @Controller
@@ -30,6 +32,7 @@ public class CheeseController {
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayAddCheeseForm(Model model){
         model.addAttribute("title","Add Cheese");
+        model.addAttribute(new Cheese()); //equivalent to ("cheese", new Cheese())
         return "cheese/add";
     }
 
@@ -37,13 +40,18 @@ public class CheeseController {
      * Add cheese form handling
      */
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAddCheeseForm(@ModelAttribute Cheese newCheese){
+    public String processAddCheeseForm(@ModelAttribute @Valid Cheese newCheese,
+                                       Errors errors, Model model){ //Error object will be available when it sees @Valid annotation
         //Cheese newCheese = new Cheese(cheeseName,cheeseDescription); //used with @RequestParam annotation
         /*
          * Cheese newCheese = new Cheese();
          * newCheese.setName(Request.getParameter("name"))
          * newCheese.setDescription(Request.getParameter("description"))
          */
+        if(errors.hasErrors()){
+            model.addAttribute("title","Add Cheese");
+            return "cheese/add";
+        }
         CheeseData.add(newCheese);
 
         // Redirect to /cheese. This works because both are within the same controller

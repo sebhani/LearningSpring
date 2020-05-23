@@ -9,15 +9,17 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<form method="post" style="max-width:600px">
+<form method="post" style="max-width:600px" th:Object="${cheese}">
     <div class="form-group">
-        <label for="name-field">Name</label>
-        <input type="text" class="form-control" id="name-field" name="name"/>
+        <label th:for="name">Name</label>
+        <input type="text" class="form-control" th:field="*{name}"/>
+        <span th:errors="*{name}" class="error"></span>
     </div>
 
     <div class="form-group">
-        <label for="description-field">Description</label>
-        <input type="text" class="form-control" id="description-field" name="description"/>
+        <label th:for="description">Description</label>
+        <input type="text" class="form-control" th:field="*{description}"/>
+        <span th:errors="*{description}" class="error"></span>
     </div>
 
     <input type="submit" value="Add Cheese"/>

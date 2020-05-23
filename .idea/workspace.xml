@@ -20,9 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f505d24-ace3-4750-8bdc-127c9c97b1aa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/models/Cheese.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/models/CheeseData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/resources/templates/cheese/remove.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/controllers/CheeseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/controllers/CheeseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/templates/cheese/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/templates/cheese/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/templates/cheese/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/templates/cheese/add.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
