@@ -13,6 +13,8 @@ public class Cheese {
     @Size(min=1, message = "Description shall be minimum a single character")
     private String description;
 
+    private CheeseType type;
+
     private int cheeseId;
     private static int nextId = 1;
 
@@ -57,5 +59,13 @@ public class Cheese {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public CheeseType getType() {
+        return type;
+    }
+
+    public void setType(CheeseType type) {
+        this.type = type;
     }
 }

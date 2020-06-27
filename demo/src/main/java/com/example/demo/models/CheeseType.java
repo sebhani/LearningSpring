@@ -15,4 +15,9 @@ public enum CheeseType {
     CheeseType(String name){
         this.name = name;
     }
+
+    // it's needed to display cheese type in Add form
+    public String getName(){
+        return name;
+    }
 }
