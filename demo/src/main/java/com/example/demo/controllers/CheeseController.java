@@ -1,8 +1,9 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.Cheese;
-import com.example.demo.models.CheeseData;
 import com.example.demo.models.CheeseType;
+import com.example.demo.models.data.CheeseDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -18,11 +19,14 @@ import java.util.ArrayList;
 @RequestMapping(value = "cheese")
 public class CheeseController {
 
+    @Autowired //Gives you an instance of the class by the framework (i.e. no need to use constructor or smt)
+    private CheeseDao cheeseDao;
+
     // Request path: /cheese
     @RequestMapping(value = "")
     public String index(Model model){//Model is to pass data from controller handler to view
 
-        model.addAttribute("cheeses", CheeseData.getAll());
+        model.addAttribute("cheeses", cheeseDao.findAll());
         model.addAttribute("title","My Cheeses");
         return "cheese/index";
     }
@@ -54,7 +58,8 @@ public class CheeseController {
             model.addAttribute("title","Add Cheese");
             return "cheese/add";
         }
-        CheeseData.add(newCheese);
+        //CheeseData.add(newCheese);
+        cheeseDao.save(newCheese);
 
         // Redirect to /cheese. This works because both are within the same controller
         return "redirect:";
@@ -63,7 +68,7 @@ public class CheeseController {
     @RequestMapping(value = "remove", method = RequestMethod.GET)
     public String displayRemoveForm(Model model){
         model.addAttribute("title","Remove Cheese");
-        model.addAttribute("cheeses",CheeseData.getAll());
+        model.addAttribute("cheeses",cheeseDao.findAll());
 
         return "cheese/remove";
     }
@@ -72,7 +77,8 @@ public class CheeseController {
     public String RemoveCheeseForm(@RequestParam int[] cheeseIds){
 
         for(int cheeseId: cheeseIds){
-            CheeseData.remove(cheeseId);
+            //CheeseData.remove(cheeseId);
+            cheeseDao.deleteById(cheeseId);
         }
         return "redirect:";
     }

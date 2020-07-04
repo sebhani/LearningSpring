@@ -1,7 +1,9 @@
 package com.example.demo.models;
 
-import java.util.ArrayList;
+//This class was used as a replacement of the actual DB
 
+import java.util.ArrayList;
+/*
 public class CheeseData {
 
     static ArrayList<Cheese> cheeses = new ArrayList<>();
@@ -33,4 +35,4 @@ public class CheeseData {
 
         return newCheese;
     }
-}
+}*/
